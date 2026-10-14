@@ -1,0 +1,6 @@
+build/
+dist/
+third_party/ffmpeg/*.exe
+tests/shot/node_modules/
+tests/shot/*.png
+*.syso
