@@ -1,7 +1,7 @@
 ; NEXPLAY Server - Windows installer (Inno Setup 6)
 #define AppName "NEXPLAY Server"
 #ifndef AppVersion
-  #define AppVersion "1.0.0"
+  #define AppVersion "1.0.1"
 #endif
 
 [Setup]
@@ -49,8 +49,8 @@ Filename: "{app}\nexplay-server.exe"; Parameters: "-service install"; Flags: run
 Filename: "{sys}\sc.exe"; Parameters: "config NexplayServer start= auto"; Flags: runhidden waituntilterminated
 Filename: "{sys}\sc.exe"; Parameters: "failure NexplayServer reset= 86400 actions= restart/5000/restart/5000/restart/30000"; Flags: runhidden waituntilterminated
 Filename: "{sys}\netsh.exe"; Parameters: "advfirewall firewall delete rule name=""NEXPLAY Server"""; Flags: runhidden waituntilterminated
-Filename: "{sys}\netsh.exe"; Parameters: "advfirewall firewall add rule name=""NEXPLAY Server"" dir=in action=allow protocol=TCP localport=8096 profile=private,domain"; Flags: runhidden waituntilterminated; StatusMsg: "Allowing the apps on your network..."
-Filename: "{sys}\netsh.exe"; Parameters: "advfirewall firewall add rule name=""NEXPLAY Server"" dir=in action=allow protocol=UDP localport=7359 profile=private,domain"; Flags: runhidden waituntilterminated
+Filename: "{sys}\netsh.exe"; Parameters: "advfirewall firewall add rule name=""NEXPLAY Server"" dir=in action=allow protocol=TCP localport=8096 profile=any"; Flags: runhidden waituntilterminated; StatusMsg: "Allowing the apps on your network..."
+Filename: "{sys}\netsh.exe"; Parameters: "advfirewall firewall add rule name=""NEXPLAY Server"" dir=in action=allow protocol=UDP localport=7359 profile=any"; Flags: runhidden waituntilterminated
 Filename: "{app}\nexplay-server.exe"; Parameters: "-service start"; Flags: runhidden waituntilterminated; StatusMsg: "Starting NEXPLAY Server..."
 Filename: "http://localhost:8096/web/"; Description: "Open NEXPLAY Server to finish the setup"; Flags: postinstall shellexec nowait
 
