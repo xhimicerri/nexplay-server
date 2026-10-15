@@ -24,3 +24,9 @@ Service: `nexplay-server.exe -service install|start|stop|uninstall`.
 
 ## License
 GPL-3.0 — see [LICENSE](LICENSE). The Windows installer bundles FFmpeg (GPL), see `third_party/ffmpeg/`.
+
+## Code signing policy
+Free code signing for the Windows installer is requested from [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org).
+- Only builds produced by the GitHub Actions workflow in this repository from this source code are signed.
+- Committers and reviewers: [@xhimicerri](https://github.com/xhimicerri). Approvers: [@xhimicerri](https://github.com/xhimicerri).
+- Privacy: this program does not transfer any information to other networked systems unless specifically requested by the user (optional TMDB metadata lookups when a TMDB API key is set).
