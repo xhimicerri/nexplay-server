@@ -1,5 +1,8 @@
 NEXPLAY Server
-Copyright (c) 2026 NEXPLAY. All rights reserved.
+Copyright (c) 2026 NEXPLAY contributors.
+
+NEXPLAY Server is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License version 3 (see LICENSE.txt). Source code: https://github.com/xhimicerri/nexplay-server
 
 NEXPLAY Server lets you watch and listen to YOUR OWN media files (movies, series, music)
 on your devices with the NEXPLAY apps. You are responsible for the content you add and for

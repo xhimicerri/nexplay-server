@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-// TV sign-in with a 6-digit code (same flow as newfilma.com): the TV shows a code + QR,
+// TV sign-in with a 6-digit code (like Netflix / YouTube on TV): the TV shows a code + QR,
 // a signed-in phone (or the /tv web page) approves it, the TV polls and receives its own session.
 
 const tvCodeTTL = 600

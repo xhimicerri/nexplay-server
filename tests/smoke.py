@@ -2,7 +2,8 @@
 import http.cookiejar, json, sys, time, urllib.request
 sys.stdout.reconfigure(encoding="utf-8")
 B = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8096"
-T = "C:/Users/user/nexplay-test"
+import os
+T = os.environ.get("NEXPLAY_TEST_MEDIA", "C:/nexplay-test")  # folder with Movies/, Series/, Music/ test files
 jar = http.cookiejar.CookieJar(); web = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
 
 def req(url, body=None, token=None, method=None, opener=None):

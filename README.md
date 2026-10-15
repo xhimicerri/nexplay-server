@@ -1,5 +1,7 @@
 # NEXPLAY Server
 
+[Download for Windows](https://nexplaytv.com/#download) · [Website](https://nexplaytv.com)
+
 Personal media server (movies, series, music) for the NEXPLAY apps — like Jellyfin, in one small Go binary.
 
 - `/web/` admin panel: first-run setup, libraries (folder picker), users, devices, settings
@@ -19,3 +21,6 @@ Service: `nexplay-server.exe -service install|start|stop|uninstall`.
 
 ## Test
 `python tests/smoke.py http://127.0.0.1:8096` (end-to-end: setup, scan, app API, TV code).
+
+## License
+GPL-3.0 — see [LICENSE](LICENSE). The Windows installer bundles FFmpeg (GPL), see `third_party/ffmpeg/`.

@@ -10,7 +10,7 @@ AppName={#AppName}
 AppVersion={#AppVersion}
 AppPublisher=NEXPLAY
 AppPublisherURL=https://nexplaytv.com
-AppSupportURL=https://nexplaytv.com
+AppSupportURL=https://github.com/xhimicerri/nexplay-server
 DefaultDirName={autopf}\NEXPLAY Server
 DefaultGroupName=NEXPLAY Server
 DisableProgramGroupPage=yes
@@ -32,6 +32,7 @@ Source: "..\third_party\ffmpeg\ffmpeg.exe"; DestDir: "{app}"; Flags: ignoreversi
 Source: "..\third_party\ffmpeg\ffprobe.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\third_party\ffmpeg\LICENSE.txt"; DestDir: "{app}\licenses"; DestName: "ffmpeg-LICENSE.txt"; Flags: ignoreversion
 Source: "license.txt"; DestDir: "{app}\licenses"; DestName: "NEXPLAY-Server.txt"; Flags: ignoreversion
+Source: "..\LICENSE"; DestDir: "{app}\licenses"; DestName: "LICENSE.txt"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\NEXPLAY Server"; Filename: "http://localhost:8096/web/"; IconFilename: "{app}\nexplay-server.exe"

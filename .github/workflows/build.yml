@@ -1,0 +1,41 @@
+name: build
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Test
+        run: go vet ./...
+      - name: Resources (icon, version)
+        run: |
+          go install github.com/tc-hib/go-winres@latest
+          go-winres make --in winres/winres.json
+      - name: Build server
+        run: go build -trimpath -ldflags "-s -w" -o build/nexplay-server.exe .
+      - name: FFmpeg
+        shell: pwsh
+        run: |
+          Invoke-WebRequest https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip -OutFile ffmpeg.zip
+          Expand-Archive ffmpeg.zip -DestinationPath ff
+          $d = Get-ChildItem ff -Directory | Select-Object -First 1
+          Copy-Item "$($d.FullName)\bin\ffmpeg.exe","$($d.FullName)\bin\ffprobe.exe" third_party\ffmpeg\
+      - name: Installer
+        shell: pwsh
+        run: |
+          choco install innosetup -y --no-progress
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /Q installer\nexplay-server.iss
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NEXPLAY-Server-Windows
+          path: |
+            dist/*.exe
+            build/nexplay-server.exe
